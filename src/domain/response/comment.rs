@@ -6,8 +6,8 @@ use crate::models::CommentModel;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct CommentResponse {
-    pub id: Uuid,
-    pub id_post_comment: Uuid,
+    pub id: i32,
+    pub id_post_comment: i32,
     pub user_name_comment: String,
     pub comment: String,
     #[serde(rename = "createdAt")]

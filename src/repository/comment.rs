@@ -26,7 +26,7 @@ impl CommentRepositoryTrait for CommentRepository {
         Ok(comments)
     }
 
-    async fn get_comment(&self, id: Uuid) -> Result<Option<CommentModel>> {
+    async fn get_comment(&self, id: i32) -> Result<Option<CommentModel>> {
         let comment = query_as::<_, CommentModel>("SELECT * FROM comments WHERE id = $1 LIMIT 1")
             .bind(id)
             .fetch_optional(&self.db_pool)
@@ -37,7 +37,7 @@ impl CommentRepositoryTrait for CommentRepository {
 
     async fn create_comment(
         &self,
-        id_post_comment: Uuid,
+        id_post_comment: i32,
         user_name_comment: &str,
         comment: &str,
     ) -> Result<CommentModel> {
@@ -55,8 +55,8 @@ impl CommentRepositoryTrait for CommentRepository {
 
     async fn update_comment(
         &self,
-        id: Uuid,
-        id_post_comment: Uuid,
+        id: i32,
+        id_post_comment: i32,
         user_name_comment: &str,
         comment: &str,
     ) -> Result<Option<CommentModel>> {
@@ -73,7 +73,7 @@ impl CommentRepositoryTrait for CommentRepository {
         Ok(comment)
     }
 
-    async fn delete_comment(&self, id: Uuid) -> Result<()> {
+    async fn delete_comment(&self, id: i32) -> Result<()> {
         query("DELETE FROM comments WHERE id = $1")
             .bind(id)
             .execute(&self.db_pool)

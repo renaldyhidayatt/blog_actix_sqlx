@@ -1,0 +1,244 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "actix_blog",
+    "dateExported": "2023-08-26T10:30:39.297Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "b063cfdd-ec49-46f2-b530-5354985ccbe5",
+            "name": "auth",
+            "containerId": "",
+            "created": "2023-07-15T19:42:04.053Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "ab62c4b8-d20a-4db7-9a1e-1622474a8400",
+            "name": "category",
+            "containerId": "",
+            "created": "2023-07-15T19:41:53.790Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "55c684ec-fce0-48bb-9cf1-65be96a52985",
+            "name": "posts",
+            "containerId": "",
+            "created": "2023-08-26T09:22:27.823Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "4efd6d42-cad7-44b4-9121-7d53d00eab23",
+            "name": "comments",
+            "containerId": "",
+            "created": "2023-08-26T10:29:25.263Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "d6d3e161-657d-403b-9d3a-53f45fde8041",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "55c684ec-fce0-48bb-9cf1-65be96a52985",
+            "name": "post",
+            "url": "localhost:8000/api/posts",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-26T09:22:22.690Z",
+            "modified": "2023-08-26T09:22:38.995Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "556fa48e-3d9c-4f4c-96fd-0dbdedb7cd9e",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "ab62c4b8-d20a-4db7-9a1e-1622474a8400",
+            "name": "findAll",
+            "url": "localhost:8000/api/category",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-07-15T19:44:21.473Z",
+            "modified": "2023-07-15T19:44:29.827Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ea42cd79-f354-4ee4-97ee-6d71096736d5",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "ab62c4b8-d20a-4db7-9a1e-1622474a8400",
+            "name": "create",
+            "url": "localhost:8000/api/category",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-07-15T19:44:35.811Z",
+            "modified": "2023-08-26T10:03:51.501Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":  \"gamingg\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e6d62397-3973-40ad-8520-448f578de49c",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "ab62c4b8-d20a-4db7-9a1e-1622474a8400",
+            "name": "update",
+            "url": "localhost:8000/api/category/1",
+            "method": "PATCH",
+            "sortNum": 35000,
+            "created": "2023-07-15T19:49:31.738Z",
+            "modified": "2023-08-26T10:28:06.465Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":  \"rust\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b48a9661-ac19-45f4-b322-1e2b65b5a486",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "ab62c4b8-d20a-4db7-9a1e-1622474a8400",
+            "name": "findById",
+            "url": "localhost:8000/api/category/d49db26e-46e6-4637-95ac-58363293a958",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-07-15T19:44:49.873Z",
+            "modified": "2023-07-15T19:46:45.541Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "95d96a6b-3ba0-44c5-a15c-8464adf1c17b",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "b063cfdd-ec49-46f2-b530-5354985ccbe5",
+            "name": "get_me",
+            "url": "localhost:8000/api/users/me",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-07-15T19:42:04.056Z",
+            "modified": "2023-08-26T10:23:46.526Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjkzMDQ1NDE3LCJleHAiOjE2OTMwNDkwMTd9.GZ4UtijhjjqxBbJO-94IZDNloFYUqPamCYxdIFynGi8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "230d747e-b1dd-4fa1-89ff-49a38d819908",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "b063cfdd-ec49-46f2-b530-5354985ccbe5",
+            "name": "register",
+            "url": "localhost:8000/api/auth/register",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-07-15T19:42:04.056Z",
+            "modified": "2023-07-15T19:42:04.056Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstname\": \"lang\",\n  \"lastname\": \"dota\",\n  \"email\": \"dragon@gmail.com\",\n  \"password\": \"slyaer\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4edafd38-088c-4c54-9415-17e7b7048d0a",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "b063cfdd-ec49-46f2-b530-5354985ccbe5",
+            "name": "login",
+            "url": "localhost:8000/api/auth/login",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-07-15T19:42:04.056Z",
+            "modified": "2023-07-15T19:42:04.056Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \n  \"email\": \"dragon@gmail.com\",\n  \"password\": \"slyaer\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a01cfd34-0ac0-4b1f-9f79-957bc34716c6",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "b063cfdd-ec49-46f2-b530-5354985ccbe5",
+            "name": "logout",
+            "url": "localhost:8000/api/auth/logout",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-07-15T19:42:04.056Z",
+            "modified": "2023-07-15T19:42:04.056Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZWFlYTVhOS01NTg1LTRiMWItYTk5Zi0wMThkNThjZWUwN2MiLCJpYXQiOjE2ODg5NDQ5ODEsImV4cCI6MTY4ODk0ODU4MX0.0GHDapuyN6atKyNy-c00uQsgJz0j9tp-WwJhJfbpJlQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a7b5e93f-ebca-4ec2-afb0-742fa3647fd5",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "55c684ec-fce0-48bb-9cf1-65be96a52985",
+            "name": "create",
+            "url": "localhost:8000/api/posts",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2023-08-26T09:22:48.283Z",
+            "modified": "2023-08-26T10:27:47.504Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"dota\",\n  \"body\": \"Dota 2 is a multiplayer online battle arena game, where teams of five fight each other in an attempt to destroy the other’s “Ancient Fortress”123. The game uses many technical mechanics during player combat that can be confusing to new players and is one of the reasons for the serious difficulty of the game2. Dota 2 is the deepest multi-player action RTS game ever made and there’s always a new strategy or tactic to discover1. It’s completely free to play and always will be – start defending your ancient now1. The game has a massive hero pool which is limitlessly diverse1. The Dota Pro Circuit features ultra-high-level Dota 2 competition streaming regularly in the game client, on Twitch and Steam.TV. Culminating in the largest e-sports championship in the world, The International, professional Dota 2 is an event not to be missed1.\",\n  \"category_id\": 1,\n  \"user_id\": 1,\n  \"user_name\": \"lang dota\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "87f7ec3e-c3b7-4deb-a6f4-5684dc16bbd8",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "4efd6d42-cad7-44b4-9121-7d53d00eab23",
+            "name": "create",
+            "url": "localhost:8000/api/comments",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-08-26T10:29:30.445Z",
+            "modified": "2023-08-26T10:30:18.606Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id_post_comment\": 1,\n  \"user_name_comment\": \"lang dota\",\n  \"comment\": \"dota adalah\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2c37d1d2-65d1-4696-a142-b4a441eacbbe",
+            "colId": "284f83ae-2437-4bd8-80a0-a4b862819783",
+            "containerId": "4efd6d42-cad7-44b4-9121-7d53d00eab23",
+            "name": "findall",
+            "url": "localhost:8000/api/comments",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2023-08-26T10:30:28.358Z",
+            "modified": "2023-08-26T10:30:32.099Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

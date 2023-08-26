@@ -9,12 +9,13 @@ use crate::domain::{ErrorResponse, TokenClaims};
 use crate::service_register::ServiceRegister;
 
 pub struct JwtMiddleware {
-    pub user_id: uuid::Uuid,
+    pub user_id: i32,
 }
 
 impl FromRequest for JwtMiddleware {
     type Error = ActixWebError;
     type Future = Ready<Result<Self, Self::Error>>;
+
     fn from_request(req: &HttpRequest, _: &mut Payload) -> Self::Future {
         let data = req.app_data::<web::Data<ServiceRegister>>().unwrap();
 
@@ -50,9 +51,8 @@ impl FromRequest for JwtMiddleware {
             }
         };
 
-        let user_id = uuid::Uuid::parse_str(claims.sub.as_str()).unwrap();
-        req.extensions_mut()
-            .insert::<uuid::Uuid>(user_id.to_owned());
+        let user_id = claims.sub.parse::<i32>().unwrap();
+        req.extensions_mut().insert::<i32>(user_id.to_owned());
 
         ready(Ok(JwtMiddleware { user_id }))
     }

@@ -6,7 +6,7 @@ use uuid::Uuid;
 #[derive(Debug, Serialize)]
 #[allow(non_snake_case)]
 pub struct CategoryResponse {
-    pub id: Uuid,
+    pub id: i32,
     pub name: String,
     pub createdAt: Option<DateTime<chrono::Utc>>,
     pub updatedAt: Option<DateTime<chrono::Utc>>,

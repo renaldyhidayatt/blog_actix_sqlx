@@ -1,11 +1,9 @@
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
 CREATE TABLE
     IF NOT EXISTS "comments" (
-        "id" UUID PRIMARY KEY NOT NULL DEFAULT (uuid_generate_v4()),
-        "id_post_comment" UUID NOT NULL,
-        "user_name_comment" varchar(200) NOT NULL,
-        "comment" varchar(200) NOT NULL,
+        "id" SERIAL PRIMARY KEY,
+        "id_post_comment" INT NOT NULL,
+        "user_name_comment" VARCHAR(200) NOT NULL,
+        "comment" VARCHAR(200) NOT NULL,
         "created_at" TIMESTAMP
         WITH
             TIME ZONE DEFAULT NOW(),

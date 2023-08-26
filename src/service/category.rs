@@ -1,11 +1,9 @@
-use anyhow::{Ok, Result};
-use async_trait::async_trait;
-use uuid::Uuid;
-
 use crate::{
     abstract_trait::{CategoryServiceTrait, DynCategoryRepository},
     domain::CategoryResponse,
 };
+use anyhow::Result;
+use async_trait::async_trait;
 
 pub struct CategoryService {
     repository: DynCategoryRepository,
@@ -30,7 +28,7 @@ impl CategoryServiceTrait for CategoryService {
         Ok(category_responses)
     }
 
-    async fn get_category(&self, id: Uuid) -> Result<Option<CategoryResponse>> {
+    async fn get_category(&self, id: i32) -> Result<Option<CategoryResponse>> {
         let category = self.repository.get_category(id).await?;
 
         match category {
@@ -49,7 +47,7 @@ impl CategoryServiceTrait for CategoryService {
         Ok(category_response)
     }
 
-    async fn update_category(&self, id: Uuid, name: &str) -> Result<Option<CategoryResponse>> {
+    async fn update_category(&self, id: i32, name: &str) -> Result<Option<CategoryResponse>> {
         let category = self.repository.update_category(id, name).await?;
 
         match category {
@@ -61,8 +59,8 @@ impl CategoryServiceTrait for CategoryService {
         }
     }
 
-    async fn delete_category(&self, id: Uuid) -> Result<()> {
-        self.delete_category(id).await?;
+    async fn delete_category(&self, id: i32) -> Result<()> {
+        self.repository.delete_category(id).await?;
 
         Ok(())
     }

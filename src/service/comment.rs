@@ -1,9 +1,7 @@
-use crate::abstract_trait::CommentRepositoryTrait;
 use crate::abstract_trait::{CommentServiceTrait, DynCommentRepository};
 use crate::domain::CommentResponse;
 use anyhow::Result;
 use async_trait::async_trait;
-use uuid::Uuid;
 
 pub struct CommentService {
     repository: DynCommentRepository,
@@ -24,7 +22,7 @@ impl CommentServiceTrait for CommentService {
         Ok(comment_responses)
     }
 
-    async fn get_comment(&self, id: Uuid) -> Result<Option<CommentResponse>> {
+    async fn get_comment(&self, id: i32) -> Result<Option<CommentResponse>> {
         if let Some(comment) = self.repository.get_comment(id).await? {
             let comment_response: CommentResponse = comment.into();
             Ok(Some(comment_response))
@@ -35,7 +33,7 @@ impl CommentServiceTrait for CommentService {
 
     async fn create_comment(
         &self,
-        id_post_comment: Uuid,
+        id_post_comment: i32,
         user_name_comment: &str,
         comment: &str,
     ) -> Result<CommentResponse> {
@@ -49,8 +47,8 @@ impl CommentServiceTrait for CommentService {
 
     async fn update_comment(
         &self,
-        id: Uuid,
-        id_post_comment: Uuid,
+        id: i32,
+        id_post_comment: i32,
         user_name_comment: &str,
         comment: &str,
     ) -> Result<Option<CommentResponse>> {
@@ -66,7 +64,7 @@ impl CommentServiceTrait for CommentService {
         }
     }
 
-    async fn delete_comment(&self, id: Uuid) -> Result<()> {
+    async fn delete_comment(&self, id: i32) -> Result<()> {
         self.repository.delete_comment(id).await?;
         Ok(())
     }

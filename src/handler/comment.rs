@@ -30,7 +30,7 @@ async fn get_comments_handler(state: web::Data<ServiceRegister>) -> impl Respond
 #[get("/comments/{id}")]
 async fn get_comment_handler(
     state: web::Data<ServiceRegister>,
-    path: web::Path<uuid::Uuid>,
+    path: web::Path<i32>,
 ) -> impl Responder {
     let comment_id = path.into_inner();
 
@@ -90,7 +90,7 @@ async fn create_comment_handler(
 #[patch("/comments/{id}")]
 async fn update_comment_handler(
     state: web::Data<ServiceRegister>,
-    path: web::Path<uuid::Uuid>,
+    path: web::Path<i32>,
     payload: web::Json<UpdateCommentRequest>,
 ) -> impl Responder {
     let comment_id = path.into_inner();
@@ -128,7 +128,7 @@ async fn update_comment_handler(
 #[delete("/comments/{id}")]
 async fn delete_comment_handler(
     state: web::Data<ServiceRegister>,
-    path: web::Path<uuid::Uuid>,
+    path: web::Path<i32>,
 ) -> impl Responder {
     let comment_id = path.into_inner();
     let result = state.comment_service.delete_comment(comment_id).await;

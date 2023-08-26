@@ -58,12 +58,12 @@ async fn create_category_handler(
 
 #[get("/category/{id}")]
 async fn get_category_handler(
-    path: web::Path<uuid::Uuid>,
+    path: web::Path<i32>,
     state: web::Data<ServiceRegister>,
 ) -> impl Responder {
     let category_id = path.into_inner();
 
-    let query_result = state.category_service.get_category(category_id).await;
+    let query_result = state.category_service.get_category(category_id).await; // Change uuid::Uuid to i32
 
     match query_result {
         Ok(category) => {
@@ -83,7 +83,7 @@ async fn get_category_handler(
 
 #[patch("/category/{id}")]
 async fn edit_category_handler(
-    path: web::Path<uuid::Uuid>,
+    path: web::Path<i32>,
     body: web::Json<UpdateCategoryRequest>,
     state: web::Data<ServiceRegister>,
 ) -> impl Responder {
@@ -122,7 +122,7 @@ async fn edit_category_handler(
 
 #[delete("/category/{id}")]
 async fn delete_category_handler(
-    path: web::Path<uuid::Uuid>,
+    path: web::Path<i32>,
     state: web::Data<ServiceRegister>,
 ) -> impl Responder {
     let category_id = path.into_inner();

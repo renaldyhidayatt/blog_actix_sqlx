@@ -153,7 +153,7 @@ async fn get_me_handler(
     _: JwtMiddleware,
 ) -> impl Responder {
     let ext = req.extensions();
-    let user_id = ext.get::<uuid::Uuid>().unwrap();
+    let user_id = ext.get::<i32>().unwrap();
 
     let user_result = data.user_service.find_by_id(*user_id).await;
 

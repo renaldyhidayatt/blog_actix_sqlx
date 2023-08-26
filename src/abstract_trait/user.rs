@@ -2,8 +2,6 @@ use anyhow::Result;
 use std::sync::Arc;
 
 use async_trait::async_trait;
-use sqlx::Error;
-use uuid::Uuid;
 
 use crate::{domain::UserResponse, models::UserModel};
 
@@ -21,7 +19,7 @@ pub trait UserRepositoryTrait {
         password: &str,
     ) -> Result<UserModel>;
     async fn find_by_email(&self, email: &str) -> Result<Option<UserModel>>;
-    async fn find_by_id(&self, id: Uuid) -> Result<Option<UserModel>>;
+    async fn find_by_id(&self, id: i32) -> Result<Option<UserModel>>;
     async fn update_user(
         &self,
         email: &str,
@@ -43,7 +41,7 @@ pub trait UserServiceTrait {
     ) -> anyhow::Result<UserResponse>;
     async fn find_by_email_exists(&self, email: &str) -> anyhow::Result<bool>;
     async fn find_user_by_email(&self, email: &str) -> anyhow::Result<Option<UserModel>>;
-    async fn find_by_id(&self, id: Uuid) -> anyhow::Result<Option<UserResponse>>;
+    async fn find_by_id(&self, id: i32) -> anyhow::Result<Option<UserResponse>>;
     async fn update_user(
         &self,
         email: &str,

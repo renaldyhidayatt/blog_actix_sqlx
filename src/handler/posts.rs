@@ -29,7 +29,7 @@ async fn get_posts_handler(state: web::Data<ServiceRegister>) -> impl Responder 
 #[get("/posts/{post_id}")]
 async fn get_post_handler(
     state: web::Data<ServiceRegister>,
-    path: web::Path<uuid::Uuid>,
+    path: web::Path<i32>,
 ) -> impl Responder {
     let post_id = path.into_inner();
     let query_result = state.posts_service.get_post(post_id).await;
@@ -89,7 +89,7 @@ async fn create_post_handler(
 #[patch("/posts/{post_id}")]
 async fn update_post_handler(
     state: web::Data<ServiceRegister>,
-    path: web::Path<uuid::Uuid>,
+    path: web::Path<i32>,
     payload: web::Json<UpdatePostRequest>,
 ) -> impl Responder {
     let post_id = path.into_inner();
@@ -129,7 +129,7 @@ async fn update_post_handler(
 #[delete("/posts/{post_id}")]
 async fn delete_post_handler(
     state: web::Data<ServiceRegister>,
-    path: web::Path<uuid::Uuid>,
+    path: web::Path<i32>,
 ) -> impl Responder {
     let post_id = path.into_inner();
     let delete_post_result = state.posts_service.delete_post(post_id).await;

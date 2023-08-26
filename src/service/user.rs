@@ -4,8 +4,6 @@ use crate::abstract_trait::{DynUserRepository, UserServiceTrait};
 use crate::domain::UserResponse;
 use crate::models::UserModel;
 
-use uuid::Uuid;
-
 #[derive(Clone)]
 pub struct UserService {
     pub repository: DynUserRepository,
@@ -47,7 +45,7 @@ impl UserServiceTrait for UserService {
             .map_err(|err| err.into())
     }
 
-    async fn find_by_id(&self, id: Uuid) -> anyhow::Result<Option<UserResponse>> {
+    async fn find_by_id(&self, id: i32) -> anyhow::Result<Option<UserResponse>> {
         let user = self.repository.find_by_id(id).await?;
         Ok(user.map(|u| u.into()))
     }

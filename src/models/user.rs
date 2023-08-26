@@ -3,7 +3,7 @@ use uuid::Uuid;
 
 #[derive(Debug, sqlx::FromRow, Deserialize, Serialize)]
 pub struct UserModel {
-    pub id: Uuid,
+    pub id: i32,
     pub firstname: String,
     pub lastname: String,
     pub email: String,

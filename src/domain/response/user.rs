@@ -1,12 +1,11 @@
 use chrono::prelude::*;
 use serde::{Deserialize, Serialize};
-use uuid::Uuid;
 
 use crate::models::UserModel;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct UserResponse {
-    pub id: Uuid,
+    pub id: i32,
     pub firstname: String,
     pub lastname: String,
     pub email: String,

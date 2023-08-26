@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use crate::{
     abstract_trait::{
-        DynCategoryRepository, DynCategoryService, DynCommentRepository, DynCommentsService,
+        DynCategoryRepository, DynCategoryService, DynCommentRepository, DynCommentService,
         DynPostsRepository, DynPostsService, DynUserRepository, DynUserService,
     },
     config::{Config, ConnectionPool},
@@ -16,7 +16,7 @@ pub struct ServiceRegister {
     pub category_service: DynCategoryService,
     pub user_service: DynUserService,
     pub posts_service: DynPostsService,
-    pub comment_service: DynCommentsService,
+    pub comment_service: DynCommentService,
 }
 
 impl ServiceRegister {
@@ -36,7 +36,7 @@ impl ServiceRegister {
         let comment_repository =
             Arc::new(CommentRepository::new(pool.clone())) as DynCommentRepository;
         let comment_service =
-            Arc::new(CommentService::new(comment_repository)) as DynCommentsService;
+            Arc::new(CommentService::new(comment_repository)) as DynCommentService;
 
         ServiceRegister {
             env: config.clone(),

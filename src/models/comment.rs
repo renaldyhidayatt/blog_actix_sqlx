@@ -1,11 +1,9 @@
 use serde::{Deserialize, Serialize};
 
-use uuid::Uuid;
-
 #[derive(Debug, sqlx::FromRow, Deserialize, Serialize)]
 pub struct CommentModel {
-    pub id: Uuid,
-    pub id_post_comment: Uuid,
+    pub id: i32,
+    pub id_post_comment: i32,
     pub user_name_comment: String,
     pub comment: String,
     #[serde(rename = "createdAt")]

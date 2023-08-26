@@ -4,7 +4,7 @@ use uuid::Uuid;
 
 #[derive(Debug, Serialize)]
 pub struct PostResponse {
-    pub id: Uuid,
+    pub id: i32,
     pub title: String,
     pub body: String,
     pub category_id: i32,
@@ -27,7 +27,7 @@ impl From<PostModel> for PostResponse {
 
 #[derive(Debug, Serialize)]
 pub struct PostRelationResponse {
-    pub post_id: Uuid,
+    pub post_id: i32,
     pub title: String,
     pub comment_id: i32,
     pub id_post_comment: i32,

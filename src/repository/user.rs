@@ -62,7 +62,7 @@ impl UserRepositoryTrait for UserRepository {
         Ok(query_result)
     }
 
-    async fn find_by_id(&self, id: Uuid) -> Result<Option<UserModel>> {
+    async fn find_by_id(&self, id: i32) -> Result<Option<UserModel>> {
         let query_result = sqlx::query_as::<_, UserModel>( "SELECT * FROM users WHERE id = $1")
             .bind(id)
             .fetch_optional(&self.db_pool)

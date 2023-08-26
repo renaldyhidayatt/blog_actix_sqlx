@@ -22,7 +22,7 @@ impl PostsServiceTrait for PostsService {
         Ok(post_responses)
     }
 
-    async fn get_post(&self, post_id: Uuid) -> Result<Option<PostResponse>> {
+    async fn get_post(&self, post_id: i32) -> Result<Option<PostResponse>> {
         let post = self.repository.get_post(post_id).await?;
         match post {
             Some(post) => {
@@ -33,7 +33,7 @@ impl PostsServiceTrait for PostsService {
         }
     }
 
-    async fn get_post_relation(&self, post_id: Uuid) -> Result<Vec<PostRelationResponse>> {
+    async fn get_post_relation(&self, post_id: i32) -> Result<Vec<PostRelationResponse>> {
         let post_relations = self.repository.get_post_relation(post_id).await?;
         let post_relation_responses: Vec<PostRelationResponse> = post_relations
             .into_iter()
@@ -60,7 +60,7 @@ impl PostsServiceTrait for PostsService {
 
     async fn update_post(
         &self,
-        post_id: Uuid,
+        post_id: i32,
         title: &str,
         body: &str,
         category_id: i32,
@@ -80,7 +80,7 @@ impl PostsServiceTrait for PostsService {
         }
     }
 
-    async fn delete_post(&self, post_id: Uuid) -> Result<()> {
+    async fn delete_post(&self, post_id: i32) -> Result<()> {
         self.repository.delete_post(post_id).await?;
         Ok(())
     }

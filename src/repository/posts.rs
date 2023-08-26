@@ -26,7 +26,7 @@ impl PostsRepositoryTrait for PostsRepository {
         Ok(posts)
     }
 
-    async fn get_post(&self, post_id: Uuid) -> Result<Option<PostModel>> {
+    async fn get_post(&self, post_id: i32) -> Result<Option<PostModel>> {
         let post = sqlx::query_as::<_, PostModel>(
             r#"SELECT id, title, body, category_id, user_id, user_name FROM posts WHERE id = $1"#,
         )
@@ -37,7 +37,7 @@ impl PostsRepositoryTrait for PostsRepository {
         Ok(post)
     }
 
-    async fn get_post_relation(&self, post_id: Uuid) -> Result<Vec<PostRelationModel>> {
+    async fn get_post_relation(&self, post_id: i32) -> Result<Vec<PostRelationModel>> {
         let post_relations = sqlx::query_as::<_, PostRelationModel>(
             r#"
             SELECT
@@ -90,7 +90,7 @@ impl PostsRepositoryTrait for PostsRepository {
 
     async fn update_post(
         &self,
-        post_id: Uuid,
+        post_id: i32,
         title: &str,
         body: &str,
         category_id: i32,
@@ -117,7 +117,7 @@ impl PostsRepositoryTrait for PostsRepository {
         Ok(post)
     }
 
-    async fn delete_post(&self, post_id: Uuid) -> Result<()> {
+    async fn delete_post(&self, post_id: i32) -> Result<()> {
         sqlx::query(r#"DELETE FROM posts WHERE id = $1"#)
             .bind(post_id)
             .execute(&self.pool)

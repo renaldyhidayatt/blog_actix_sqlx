@@ -2,7 +2,7 @@ use uuid::Uuid;
 
 #[derive(Debug, sqlx::FromRow)]
 pub struct PostModel {
-    pub id: Uuid,
+    pub id: i32,
     pub title: String,
     pub body: String,
     pub category_id: i32,
@@ -12,7 +12,7 @@ pub struct PostModel {
 
 #[derive(Debug, sqlx::FromRow)]
 pub struct PostRelationModel {
-    pub post_id: Uuid,
+    pub post_id: i32,
     pub title: String,
     pub comment_id: i32,
     pub id_post_comment: i32,
